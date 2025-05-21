@@ -56,7 +56,7 @@ export default function Header() {
                 </button>
 
                 <a
-                    href="https://linkedin.com/in/yourprofile"
+                    href="https://www.linkedin.com/in/paul-mehr-257b18268/"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -67,7 +67,7 @@ export default function Header() {
                     </svg>
                 </a>
                 <a
-                    href="https://github.com/yourusername"
+                    href="https://github.com/polmzenou"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
