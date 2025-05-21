@@ -11,7 +11,7 @@ const projects = [
     title: "Application de suivi energetique",
     description: "Application pour visualiser les données pour suivre la consommation énergétique de l'IUT de Haguenau développée avec Laravel.",
     tags: ["Laravel", "Chart.js", "MySQL", "TailwindCSS"],
-    image: "../../images/conso.png",
+    image: "/images/conso.png",
     link: "https://sae501.mehr.soete.etu.mmi-unistra.fr/",
     year: "2025"
   },
@@ -20,7 +20,7 @@ const projects = [
     title: "Terracorsica",
     description: "Site web qui propose des parcours de randonnées du GR20 développée avec Symfony.",
     tags: ["Symfony", "MySQL", "Twig", "API Google Maps"],
-    image: "/images/project-2.jpg",
+    image: "/images/terracorsica.png",
     link: "https://terracorsica.akifi.etu.mmi-unistra.fr/",
     year: "2024"
   },
@@ -29,7 +29,7 @@ const projects = [
     title: "Application en AR à l'Eurométropole",
     description: "Application pour visualiser des projets d'aménagement en relation avec la direction géomatique.",
     tags: ["Unity", "C#", "AR", "ARKit"],
-    image: "/images/project-3.jpg",
+    image: "/images/MiniatureVR.png",
     link: "#",
     year: "2024"
   },
@@ -38,7 +38,7 @@ const projects = [
     title: "Application de gestion d'emprunt de l'IUT",
     description: "Application web de gestion d'emprunt de matériels développée avec Laravel.",
     tags: ["Laravel", "MySQL", "TailwindCSS"],
-    image: "/images/project-4.jpg",
+    image: "/images/matos_iut.png",
     link: "https://sae501.mehr.etu.mmi-unistra.fr/",
     year: "2024"
   },
@@ -47,7 +47,7 @@ const projects = [
     title: "OpenWeather API",
     description: "Site web météo qui exploite l'API OpenWeather en utilisant la technologie D3.js",
     tags: ["JavaScript", "D3.js", "API"],
-    image: "/images/project-4.jpg",
+    image: "/images/meteo.png",
     link: "https://d3-meteo.mehr.etu.mmi-unistra.fr/",
     year: "2025"
   },
@@ -56,7 +56,7 @@ const projects = [
     title: "Application de générateur de couleurs",
     description: "Application pour générer des couleurs aléatoires afin de s'inspirer pour différent projet.",
     tags: ["JavaScript", "HTML", "TailwindCSS"],
-    image: "/images/project-4.jpg",
+    image: "/images/palette.png",
     link: "https://polmzenou.github.io/portfolio/main.html",
     year: "2025"
   },
@@ -65,7 +65,7 @@ const projects = [
     title: "Ancien portfolio",
     description: "Mon ancien portfolio, réalisé avec HTML, CSS et JavaScript.",
     tags: ["HTML", "CSS", "JavaScript"],
-    image: "/images/project-4.jpg",
+    image: "/images/ancien_portfolio.png",
     link: "https://polmzenou.github.io/portfolio",
     year: "2022"
   }
@@ -79,7 +79,7 @@ export default function ProjectList({ hideHeader = false }: ProjectListProps) {
   const [scrollY, setScrollY] = useState(0);
   const [activeProject, setActiveProject] = useState<number | null>(null);
   const [codeLines, setCodeLines] = useState<string[]>([]);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -97,7 +97,7 @@ export default function ProjectList({ hideHeader = false }: ProjectListProps) {
 
   // Start showing when scrollY > 1200, fully visible at scrollY > 1500
   const opacity = Math.min(Math.max((scrollY - 1200) / 300, 0), 1);
-  
+
   // Parallax effect
   const translateY = Math.max(0, 200 - (scrollY - 1000) / 3);
 
@@ -124,7 +124,7 @@ export default function ProjectList({ hideHeader = false }: ProjectListProps) {
   };
 
   return (
-    <section 
+    <section
       id="projets"
       className="min-h-screen relative bg-black border-t border-white"
       style={{
@@ -156,7 +156,7 @@ export default function ProjectList({ hideHeader = false }: ProjectListProps) {
           </div>
         </div>
 
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -165,9 +165,8 @@ export default function ProjectList({ hideHeader = false }: ProjectListProps) {
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              className={`border border-white bg-black bg-opacity-70 backdrop-blur-sm relative overflow-hidden group ${
-                activeProject === project.id ? 'ring-2 ring-green-fluo' : ''
-              }`}
+              className={`border border-white bg-black bg-opacity-70 backdrop-blur-sm relative overflow-hidden group ${activeProject === project.id ? 'ring-2 ring-green-fluo' : ''
+                }`}
               variants={projectVariants}
               onMouseEnter={() => setActiveProject(project.id)}
               onMouseLeave={() => setActiveProject(null)}
@@ -175,14 +174,20 @@ export default function ProjectList({ hideHeader = false }: ProjectListProps) {
               {/* Corner decorations */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-green-fluo z-20"></div>
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-green-fluo z-20"></div>
-              
+
               {/* Background image with overlay */}
               <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
                 <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent z-10"></div>
                 {/* Fallback image placeholder - replace with actual project images */}
-                <div className="w-full h-full bg-gradient-to-r from-blue-900 to-black"></div>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover object-center z-0"
+                  quality={80}
+                />
               </div>
-              
+
               {/* Random code snippets in background */}
               <div className="absolute inset-0 overflow-hidden opacity-5 pointer-events-none">
                 <pre className="text-green-fluo font-mono text-xs p-4">
@@ -191,7 +196,7 @@ export default function ProjectList({ hideHeader = false }: ProjectListProps) {
                   ))}
                 </pre>
               </div>
-              
+
               <div className="p-6 relative z-10">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-xl font-marathon text-white">{project.title}</h3>
@@ -199,33 +204,33 @@ export default function ProjectList({ hideHeader = false }: ProjectListProps) {
                     {project.year}
                   </span>
                 </div>
-                
+
                 <p className="text-white text-sm mb-6 min-h-[80px]">{project.description}</p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, index) => (
-                    <span 
-                      key={index} 
+                    <span
+                      key={index}
                       className="text-xs bg-black bg-opacity-50 border border-white text-white px-2 py-1 font-mono"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                
-                <a 
-                  href={project.link} 
+
+                <a
+                  href={project.link}
                   className="inline-flex items-center text-green-fluo hover:text-white transition-colors duration-300 font-mono text-sm"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <span className="mr-2">VOIR LE PROJET</span>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </a>
               </div>
-              
+
               {/* Project ID label */}
               <div className="absolute top-2 right-2 font-mono text-xs text-green-fluo">
                 ID: {String(project.id).padStart(3, '0')}
@@ -233,7 +238,7 @@ export default function ProjectList({ hideHeader = false }: ProjectListProps) {
             </motion.div>
           ))}
         </motion.div>
-        
+
         {/* Terminal footer */}
         <div className="mt-12 border-t border-white border-opacity-30 pt-6 flex justify-between items-center text-xs text-white font-mono">
           <span>TOTAL_PROJECTS: {projects.length}</span>

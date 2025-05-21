@@ -11,7 +11,6 @@ import ProjectList from "../components/ProjectList"
 import AnimatedGridPattern from "../components/AnimatedGridPattern"
 import DesktopMode from "../components/DesktopMode"
 import ContactTerminal from "../components/ContactTerminal"
-// import ContactForm from "../components/ContactForm"
 
 export default function Home() {
   const { layoutMode } = useLayoutMode();
@@ -47,7 +46,6 @@ export default function Home() {
         <DesktopMode />
       )}
       
-      {/* <ContactForm /> */}
     </main>
   )
 }

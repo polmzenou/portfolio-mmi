@@ -243,7 +243,7 @@ const ContactTerminal: React.FC<ContactTerminalProps> = ({ hideHeader = false, c
       {!hideHeader && (
         <div className="text-center mb-8">
           <h2 className="text-4xl font-marathon text-green-fluo mb-2">CONTACT</h2>
-          <p className="text-sm text-white/70">Envoyez moi un message</p>
+          <p className="text-sm text-white/70">Envoyez moi un message directement à paul.mehr68@gmail.com</p>
         </div>
       )}
 
