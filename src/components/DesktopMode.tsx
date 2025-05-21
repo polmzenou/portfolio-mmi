@@ -29,13 +29,13 @@ const DesktopMode = () => {
   ]);
 
   // Automatically open the About window when component mounts
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      openWindow('about');
-    }, 500);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     openWindow('about');
+  //   }, 500);
     
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   // Calculer la taille du conteneur
   useEffect(() => {

@@ -12,7 +12,7 @@ interface LayoutModeContextType {
 const LayoutModeContext = createContext<LayoutModeContextType | undefined>(undefined);
 
 export function LayoutModeProvider({ children }: { children: ReactNode }) {
-  const [layoutMode, setLayoutMode] = useState<LayoutMode>('standard');
+  const [layoutMode, setLayoutMode] = useState<LayoutMode>('desktop');
 
   // Load preference from localStorage on initial mount
   useEffect(() => {
