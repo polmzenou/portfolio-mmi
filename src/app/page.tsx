@@ -14,22 +14,22 @@ import ContactTerminal from "../components/ContactTerminal"
 
 export default function Home() {
   const { layoutMode } = useLayoutMode();
-  
+
   return (
     <main className="bg-black min-h-screen w-full overflow-x-hidden">
       <Header />
-      
+
       {/* Always show hero section */}
       <Hero />
-      
+
       {layoutMode === 'standard' ? (
         // Standard one-page layout
         <div className="relative w-full">
           <div className="fixed inset-0 z-0 pointer-events-none">
-            <AnimatedGridPattern 
-              size={110} 
-              divideX={8} 
-              divideY={8} 
+            <AnimatedGridPattern
+              size={110}
+              divideX={8}
+              divideY={8}
               cellSize={80}
               fill
             />
@@ -37,15 +37,16 @@ export default function Home() {
           <About />
           <SkillsGrid />
           <ProjectList />
-          <div className="pb-20">
+          <div id="me-contacter" className="pb-20">
             <ContactTerminal />
           </div>
+
         </div>
       ) : (
         // Desktop mode
         <DesktopMode />
       )}
-      
+
     </main>
   )
 }

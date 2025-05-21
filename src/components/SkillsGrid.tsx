@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 const skillCategories = [
   {
     name: "DEVELOPPEMENT FRONTEND",
-    skills: ["HTML", "CSS", "JavaScript", "SASS", "React", "Next.js", "TypeScript", "Tailwind CSS", "Three.js", "Vue.js"],
+    skills: ["HTML", "CSS", "JavaScript", "SASS", "React", "Next.js", "TypeScript", "Tailwind CSS", "Three.js", "Vue.js", "React Native"],
     icon: (
       <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M3 6L7 3L11 6L15 3L19 6L23 3V18L19 21L15 18L11 21L7 18L3 21V6Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -19,7 +19,7 @@ const skillCategories = [
   },
   {
     name: "DEVELOPPEMENT BACKEND",
-    skills: ["Node.js", "Symfony", "Laravel", "PostgreSQL", "Supabase"],
+    skills: ["Node.js", "PHP", "MySQL", "Symfony", "Laravel", "PostgreSQL", "Supabase", "MyPHPAdmin"],
     icon: (
       <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4 11v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -46,7 +46,7 @@ const skillCategories = [
   },
   {
     name: "OUTILS & METHODOLOGIE",
-    skills: ["Git", "GitHub", "Agile/Scrum"],
+    skills: ["Git", "Gitlab", "GitHub", "Agile/Scrum", "Unity", "C#"],
     icon: (
       <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M7 10v4h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

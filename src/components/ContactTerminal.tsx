@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { useLayoutMode } from "../lib/context/LayoutModeContext";
 
 interface ContactTerminalProps {
   hideHeader?: boolean;
@@ -50,13 +51,20 @@ const ContactTerminal: React.FC<ContactTerminalProps> = ({ hideHeader = false, c
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
   }, [history]);
+  const { layoutMode } = useLayoutMode();
 
   useEffect(() => {
-    // Focus input on load
-    if (inputRef.current) {
+    if (layoutMode === 'desktop' && inputRef.current) {
       inputRef.current.focus();
     }
-  }, []);
+  }, [layoutMode]);
+  
+  useEffect(() => {
+    if (layoutMode === 'standard') {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }, [layoutMode]);
+  
 
   const handleSubmit = async () => {
     try {
@@ -304,7 +312,6 @@ const ContactTerminal: React.FC<ContactTerminalProps> = ({ hideHeader = false, c
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   className="bg-transparent border-none outline-none w-full text-green-fluo font-mono"
-                  autoFocus
                   disabled={isLoading}
                 />
                 <span 

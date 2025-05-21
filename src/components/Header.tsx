@@ -15,9 +15,16 @@ export default function Header() {
     return (
         <header className="fixed top-0 left-0 w-full z-50 flex items-center border-b border-white">
             {/* Logo - Left section with background */}
-            <div className="h-16 w-28 bg-green-fluo flex items-center justify-center border-r border-white">
+            <button
+                onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    history.replaceState(null, '', window.location.pathname);
+                }}
+                className="h-16 w-28 bg-green-fluo flex items-center justify-center border-r border-white"
+            >
                 <StarLogo />
-            </div>
+            </button>
+
 
             {/* Navigation - Center section */}
             <nav className="flex-1 flex justify-center h-16 bg-black">
@@ -45,15 +52,15 @@ export default function Header() {
                 </ul>
             </nav>
 
+            {/* Mode toggle button */}
+            <button
+                onClick={toggleLayoutMode}
+                className="flex items-center justify-center mr-4 border border-green-fluo rounded px-3 py-1 text-green-fluo text-xs hover:bg-green-fluo hover:text-black transition-colors"
+            >
+                {layoutMode === 'standard' ? 'MODE DESKTOP' : 'MODE STANDARD'}
+            </button>
             {/* Social Icons - Right section */}
             <div className="flex items-center space-x-4 h-16 px-6 bg-black">
-                {/* Mode toggle button */}
-                <button
-                    onClick={toggleLayoutMode}
-                    className="flex items-center justify-center mr-4 border border-green-fluo rounded px-3 py-1 text-green-fluo text-xs hover:bg-green-fluo hover:text-black transition-colors"
-                >
-                    {layoutMode === 'standard' ? 'MODE DESKTOP' : 'MODE STANDARD'}
-                </button>
 
                 <a
                     href="https://www.linkedin.com/in/paul-mehr-257b18268/"
