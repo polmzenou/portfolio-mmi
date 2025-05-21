@@ -35,6 +35,32 @@ main {
   overflow: hidden;
 }
 
+/* Terminal scrollbar styling */
+.terminal-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-scrollbar::-webkit-scrollbar-track {
+  background: rgba(5, 5, 5, 0.8);
+  border-radius: 4px;
+}
+
+.terminal-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--green-fluo);
+  border-radius: 4px;
+}
+
+.terminal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(192, 254, 4, 0.8);
+  box-shadow: 0 0 10px rgba(192, 254, 4, 0.5);
+}
+
+/* Firefox */
+.terminal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--green-fluo) rgba(5, 5, 5, 0.8);
+}
+
 /* Scanline effect */
 .bg-scan-lines {
   background-image: repeating-linear-gradient(

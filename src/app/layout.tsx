@@ -2,6 +2,7 @@
 import '../styles/globals.css';
 import { Metadata } from 'next';
 import { LayoutModeProvider } from '../lib/context/LayoutModeContext';
+import EmailJSInitializer from '../lib/EmailJSInitializer';
 
 export const metadata: Metadata = {
   title: 'Paul Mehr | Portfolio',
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="fr" className="scroll-smooth">
       <body className="bg-black antialiased">
         <LayoutModeProvider>
+          <EmailJSInitializer />
           {children}
         </LayoutModeProvider>
       </body>

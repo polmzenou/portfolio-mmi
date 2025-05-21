@@ -5,9 +5,10 @@ import { motion } from 'framer-motion';
 import About from './About';
 import SkillsGrid from './SkillsGrid';
 import ProjectList from './ProjectList';
+import ContactTerminal from './ContactTerminal';
 import AnimatedGridPattern from './AnimatedGridPattern';
 
-type WindowType = 'about' | 'skills' | 'projects';
+type WindowType = 'about' | 'skills' | 'projects' | 'contact';
 
 interface WindowState {
   id: WindowType;
@@ -25,7 +26,8 @@ const DesktopMode = () => {
   const [windows, setWindows] = useState<WindowState[]>([
     { id: 'about', isOpen: false, zIndex: 10, position: { x: 50, y: 50 } },
     { id: 'skills', isOpen: false, zIndex: 11, position: { x: 100, y: 100 } },
-    { id: 'projects', isOpen: false, zIndex: 12, position: { x: 150, y: 150 } }
+    { id: 'projects', isOpen: false, zIndex: 12, position: { x: 150, y: 150 } },
+    { id: 'contact', isOpen: false, zIndex: 13, position: { x: 200, y: 200 } }
   ]);
 
   // Automatically open the About window when component mounts
@@ -135,11 +137,21 @@ const DesktopMode = () => {
             <path d="M9 21V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         ),
+      },
+      {
+        id: 'contact' as WindowType,
+        name: 'CONTACT',
+        icon: (
+          <svg className="w-12 h-12 text-green-fluo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M22 6L12 13L2 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        ),
       }
     ];
 
     return (
-      <div className="grid grid-cols-3 gap-8 place-items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div className="grid grid-cols-4 gap-8 place-items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         {icons.map(icon => (
           <button
             key={icon.id}
@@ -165,7 +177,8 @@ const DesktopMode = () => {
     const titleMap = {
       'about': 'À PROPOS',
       'skills': 'COMPÉTENCES',
-      'projects': 'PROJETS'
+      'projects': 'PROJETS',
+      'contact': 'CONTACT'
     };
 
     // Calculer la taille des fenêtres
@@ -219,6 +232,11 @@ const DesktopMode = () => {
           {id === 'about' && <About hideHeader />}
           {id === 'skills' && <SkillsGrid hideHeader />}
           {id === 'projects' && <ProjectList hideHeader />}
+          {id === 'contact' && (
+            <div className="bg-black text-green-fluo">
+              <ContactTerminal hideHeader closeWindow={() => closeWindow('contact')} />
+            </div>
+          )}
         </div>
       </motion.div>
     );

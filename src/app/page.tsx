@@ -10,6 +10,7 @@ import SkillsGrid from "../components/SkillsGrid"
 import ProjectList from "../components/ProjectList"
 import AnimatedGridPattern from "../components/AnimatedGridPattern"
 import DesktopMode from "../components/DesktopMode"
+import ContactTerminal from "../components/ContactTerminal"
 // import ContactForm from "../components/ContactForm"
 
 export default function Home() {
@@ -37,6 +38,9 @@ export default function Home() {
           <About />
           <SkillsGrid />
           <ProjectList />
+          <div className="pb-20">
+            <ContactTerminal />
+          </div>
         </div>
       ) : (
         // Desktop mode

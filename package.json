@@ -10,6 +10,7 @@
         "prisma": "prisma"
     },
     "dependencies": {
+        "@emailjs/browser": "^4.4.1",
         "@prisma/client": "^5.14.0",
         "autoprefixer": "^10.4.17",
         "clsx": "^2.1.1",
