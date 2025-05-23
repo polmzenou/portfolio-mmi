@@ -190,7 +190,7 @@ const DesktopMode = () => {
         key={id}
         drag
         dragMomentum={false}
-        dragElastic={0}
+        dragElastic={2}
         dragConstraints={containerRef}
         initial={{ x: position.x, y: position.y, opacity: 0, scale: 0.9 }}
         animate={{ x: position.x, y: position.y, opacity: 1, scale: 1 }}

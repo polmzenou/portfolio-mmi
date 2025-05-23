@@ -12,6 +12,7 @@ import AnimatedGridPattern from "../components/AnimatedGridPattern"
 import DesktopMode from "../components/DesktopMode"
 import ContactTerminal from "../components/ContactTerminal"
 
+
 export default function Home() {
   const { layoutMode } = useLayoutMode();
 
@@ -35,6 +36,7 @@ export default function Home() {
             />
           </div>
           <About />
+
           <SkillsGrid />
           <ProjectList />
           <div id="me-contacter" className="pb-20">
