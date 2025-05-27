@@ -13,7 +13,8 @@ const projects = [
     tags: ["Laravel", "Chart.js", "MySQL", "TailwindCSS"],
     image: "/images/conso.png",
     link: "https://sae501.mehr.soete.etu.mmi-unistra.fr/",
-    year: "2025"
+    year: "2025",
+    isExternal: true
   },
   {
     id: 2,
@@ -22,7 +23,8 @@ const projects = [
     tags: ["Symfony", "MySQL", "Twig", "API Google Maps"],
     image: "/images/terracorsica.png",
     link: "https://terracorsica.akifi.etu.mmi-unistra.fr/",
-    year: "2024"
+    year: "2024",
+    isExternal: true
   },
   {
     id: 3,
@@ -30,8 +32,9 @@ const projects = [
     description: "Application pour visualiser des projets d'aménagement en relation avec la direction géomatique.",
     tags: ["Unity", "C#", "AR", "ARKit"],
     image: "/images/MiniatureVR.png",
-    link: "#",
-    year: "2024"
+    link: "/projects/vr-project",
+    year: "2024",
+    isExternal: false
   },
   {
     id: 4,
@@ -40,7 +43,8 @@ const projects = [
     tags: ["Laravel", "MySQL", "TailwindCSS"],
     image: "/images/matos_iut.png",
     link: "https://sae501.mehr.etu.mmi-unistra.fr/",
-    year: "2024"
+    year: "2024",
+    isExternal: true
   },
   {
     id: 5,
@@ -49,7 +53,8 @@ const projects = [
     tags: ["JavaScript", "D3.js", "API"],
     image: "/images/meteo.png",
     link: "https://d3-meteo.mehr.etu.mmi-unistra.fr/",
-    year: "2025"
+    year: "2025",
+    isExternal: true
   },
   {
     id: 6,
@@ -58,7 +63,8 @@ const projects = [
     tags: ["JavaScript", "HTML", "TailwindCSS"],
     image: "/images/palette.png",
     link: "https://polmzenou.github.io/portfolio/main.html",
-    year: "2025"
+    year: "2025",
+    isExternal: true
   },
   {
     id: 7,
@@ -67,7 +73,18 @@ const projects = [
     tags: ["HTML", "CSS", "JavaScript"],
     image: "/images/ancien_portfolio.png",
     link: "https://polmzenou.github.io/portfolio",
-    year: "2022"
+    year: "2022",
+    isExternal: true
+  },
+  {
+    id: 8,
+    title: 'Projet VR',
+    description: 'Une expérience immersive en réalité virtuelle',
+    image: '/images/MiniatureVR.png',
+    tags: ['Unity', 'Oculus SDK', 'C#'],
+    link: '/projects/vr-project',
+    year: "2024",
+    isExternal: false
   }
 ];
 
@@ -221,8 +238,8 @@ export default function ProjectList({ hideHeader = false }: ProjectListProps) {
                 <a
                   href={project.link}
                   className="inline-flex items-center text-green-fluo hover:text-white transition-colors duration-300 font-mono text-sm"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={project.isExternal ? "_blank" : undefined}
+                  rel={project.isExternal ? "noopener noreferrer" : undefined}
                 >
                   <span className="mr-2">VOIR LE PROJET</span>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
