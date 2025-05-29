@@ -76,16 +76,6 @@ const projects = [
     year: "2022",
     isExternal: true
   },
-  {
-    id: 8,
-    title: 'Projet VR',
-    description: 'Une expérience immersive en réalité virtuelle',
-    image: '/images/MiniatureVR.png',
-    tags: ['Unity', 'Oculus SDK', 'C#'],
-    link: '/projects/vr-project',
-    year: "2024",
-    isExternal: false
-  }
 ];
 
 interface ProjectListProps {
